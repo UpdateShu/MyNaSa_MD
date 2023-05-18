@@ -3,7 +3,16 @@
     <style name="Base.Theme.MyNaSa_MD" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="colorSurface">@color/material_green_200</item>
+        <item name="chipStyle">@style/MyChipStyle</item>
     </style>
 
-    <style name="Theme.MyNaSa_MD" parent="Base.Theme.MyNaSa_MD" />
+    <style name="MyChipStyle" parent="Widget.Material3.Chip.Suggestion">
+        <item name="chipBackgroundColor">@drawable/my_selector_backgroundchip</item>
+        <item name="rippleColor">@color/material_amber_400</item>
+    </style>
+    
+    <style name="Theme.MyNaSa_MD" parent="Base.Theme.MyNaSa_MD">
+    </style>
 </resources>
