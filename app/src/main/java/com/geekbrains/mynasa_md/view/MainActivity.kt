@@ -6,15 +6,14 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager.BackStackEntry
 import androidx.navigation.ui.AppBarConfiguration
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.ActivityMainBinding
 import com.geekbrains.mynasa_md.utils.Constants.BACKSTACK
 import com.geekbrains.mynasa_md.utils.Constants.NO_BACKSTACK
 import com.geekbrains.mynasa_md.utils.Constants.TAG_MA
+import com.geekbrains.mynasa_md.view.notes.NotesFragment
 import com.google.android.material.bottomappbar.BottomAppBar
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (savedInstanceState == null) {
-            showFragment(PictureOfTheDayFragment.newInstance(), NO_BACKSTACK)
+            showFragment(NotesFragment(), NO_BACKSTACK)
         }
 
         this.setSupportActionBar(binding.aBottomAppBar)

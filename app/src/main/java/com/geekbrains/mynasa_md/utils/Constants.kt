@@ -20,4 +20,7 @@ object Constants {
     const val TODAY = 0
     const val YESTERDAY = 1
     const val DAY_BEFORE_YESTERDAY = 2
+
+    const val TYPE_HEADER: Int = 1
+    const val TYPE_NOTE: Int = 2
 }
