@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/andika</item>
+        <item>@font/cormorant_unicase_light</item>
+        <item>@font/kranky</item>
+        <item>@font/lobster_two</item>
+        <item>@font/macondo</item>
+        <item>@font/rubik_light</item>
+        <item>@font/teko_light</item>
+        <item>@font/trirong_thin</item>
+    </array>
+</resources>

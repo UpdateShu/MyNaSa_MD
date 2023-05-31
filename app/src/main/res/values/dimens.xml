@@ -16,4 +16,6 @@
     <dimen name="_52dp">52dp</dimen>
     <dimen name="_55dp">40dp</dimen>
     <dimen name="note_created_width">100dp</dimen>
+    <dimen name="picture_description_height">200dp</dimen>
+    <dimen name="description_textSize">24dp</dimen>
 </resources>

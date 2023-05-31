@@ -4,6 +4,7 @@
     <string name="photo_of_day">Фото дня</string>
     <string name="search_wiki">Найти в Wikipedia</string>
     <string name="wiki_helper">Поищите термин в Wikipedia</string>
+
     <string name="favourite">Favourite</string>
     <string name="setting">Setting</string>
     <string name="search">Search</string>
@@ -12,18 +13,22 @@
     <string name="corrupted_data">ПОТЕРЯ_ДАННЫХ</string>
     <string name="reload">RELOAD</string>
     <string name="video_info">Не поддерживает видео материал</string>
+
     <string name="menu_bab_setting">Setting</string>
     <string name="menu_bab_fav">Favourite</string>
-    <string name="menu_nav_view_1">Меню 1</string>
-    <string name="menu_nav_view_2">Меню 2</string>
+
+    <string name="menu_nav_lesson_1">Урок 1. Картинка дня</string>
+    <string name="menu_nav_lesson_6">Урок 6. RecyclerView</string>
+    <string name="menu_nav_lesson_7">Урок 7. Шрифты</string>
+
     <string name="menu_other_fab_exit">Back</string>
     <string name="menu_other_search">Find</string>
+
     <string name="chip_1">Позавчера</string>
     <string name="chip_2">Вчера</string>
     <string name="chip_3">Сегодня</string>
     <string name="chip_4">Завтра</string>
     <string name="header">Header</string>
-
     <string name="hint_note_text">Текст заметки</string>
     <string name="hint_note_created"></string>
     <string name="btn_save">Save</string>

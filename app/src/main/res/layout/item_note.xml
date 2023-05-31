@@ -56,6 +56,7 @@
             android:background="@color/material_amber_50"
             android:padding="@dimen/_16dp"
             android:textSize="20sp"
+            app:fontFamily="@font/cormorant_unicase_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/note_editor"
             app:layout_constraintStart_toStartOf="parent"

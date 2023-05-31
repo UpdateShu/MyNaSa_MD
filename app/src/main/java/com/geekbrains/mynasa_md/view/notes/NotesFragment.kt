@@ -42,7 +42,7 @@ class NotesFragment : Fragment() {
             parentFragmentManager?.let { manager ->
                 manager.beginTransaction()
                     .replace(
-                        R.id.a_frame_container,
+                        R.id.lessons_view_container,
                         EditNoteFragment.newInstance(Bundle().also { bundle ->
                             bundle.putParcelable(EditNoteFragment.MY_NOTE, note)
                         })

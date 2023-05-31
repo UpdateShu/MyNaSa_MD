@@ -1,6 +1,7 @@
 package com.geekbrains.mynasa_md.view.notes.adapter
 
 import android.annotation.SuppressLint
+import android.graphics.Typeface
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -123,6 +124,7 @@ class NotesAdapter(val actionNoteListener: OnNoteActionListener) :
                     with(ItemNoteBinding.bind(holder.itemView)) {
                         if (newData.first.text != oldData.first.text) {
                             noteText.text = newData.first.text
+                            //noteText.typeface = Typeface.createFromAsset(it.assets, "az_Eret1.ttf")
                         }
                     }
                 }

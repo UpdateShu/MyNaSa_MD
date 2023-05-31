@@ -27,42 +27,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (savedInstanceState == null) {
-            showFragment(NotesFragment(), NO_BACKSTACK)
-        }
-
-        this.setSupportActionBar(binding.aBottomAppBar)
-        clickedOnFAB()
-    }
-
-    private var isMain: Boolean = true
-
-    private fun clickedOnFAB() {
-        binding.aFab.setOnClickListener {
-            if (isMain) {
-                binding.aBottomAppBar.navigationIcon = null
-                binding.aBottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                binding.aFab.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        this,
-                        R.drawable.ic_baseline_arrow_back_24
-                    )
-                )
-                binding.aBottomAppBar.replaceMenu(R.menu.menu_other_bottom_app_bar)
-            } else {
-                binding.aBottomAppBar.navigationIcon =
-                    ContextCompat.getDrawable(this, R.drawable.ic_round_dehaze_24)
-                binding.aBottomAppBar.replaceMenu(R.menu.menu_bottom_app_bar)
-                binding.aFab.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        this,
-                        R.drawable.ic_baseline_add_24
-                    )
-                )
-                binding.aBottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-            }
-            isMain = !isMain
-        }
+        setSupportActionBar(binding.aBottomAppBar)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -75,28 +40,17 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.menu_bab_setting -> {
                 Log.d(TAG_MA, "menu Setting")
-                showFragment(PictureOfTheDayFragment.newInstance(), BACKSTACK)
+                //showFragment(PictureOfTheDayFragment.newInstance(), BACKSTACK)
             }
             R.id.menu_bab_fav -> {
                 Log.d(TAG_MA, "menu Favourite")
             }
             android.R.id.home -> {
-                BottomNavigationFragment().show(supportFragmentManager, "")
+                LessonsNavigationFragment().show(supportFragmentManager, "")
                 Log.d(TAG_MA, "menu Home")
             }
 
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun showFragment(fragment: Fragment, backstack: Boolean) {
-        val sfm = supportFragmentManager.beginTransaction()
-            .replace(R.id.a_frame_container, fragment)
-
-        // Проверка необходимости положить предыдущий фрагмент в бэкстэк
-        if (backstack) {
-            sfm.addToBackStack(fragment.toString())
-        }
-        sfm.commit()
     }
 }
