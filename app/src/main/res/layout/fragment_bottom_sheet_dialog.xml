@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fdialog_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="50dp"
+    android:background="@color/material_amber_100"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <View
+        android:background="@color/black"
+        android:id="@+id/f_bottom_sheet_line"
+        android:layout_width="100dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/margin_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/f_bottom_sheet_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/f_bottom_sheet_line"
+        app:layout_constraintBottom_toTopOf="@id/scrolled_description" >
+    </TextView>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrolled_description"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/picture_description_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/f_bottom_sheet_title">
+
+        <TextView
+            android:id="@+id/f_bottom_sheet_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/description_textSize"/>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

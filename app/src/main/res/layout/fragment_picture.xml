@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fpictures_text_input_layout"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/wiki_helper"
+            app:counterEnabled="true"
+            app:counterMaxLength="@integer/counter_max_length"
+            app:endIconDrawable="@drawable/ic_outline_search_24"
+            app:endIconMode="custom"
+            app:helperText="@string/wiki_helper"
+            app:layout_constraintBottom_toTopOf="@id/f_pictures_chip_group"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/ic_wikipedia_letter_2">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fpictures_text_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/macondo" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            android:padding="@dimen/margin_8"
+            android:id="@+id/f_pictures_chip_group"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fpictures_text_input_layout"
+            app:layout_constraintBottom_toTopOf="@id/fpictures_imageview">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chips_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_1" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chips_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_2" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chips_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_3"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chips_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="@string/chip_4"/>
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.geekbrains.mynasa_md.utils.MyImageView
+            android:id="@+id/fpictures_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_pictures_chip_group">
+        </com.geekbrains.mynasa_md.utils.MyImageView>
+
+        <ProgressBar
+            android:id="@+id/fpictures_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/f_pictures_bottom_sheet"
+        layout="@layout/fragment_bottom_sheet_dialog" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

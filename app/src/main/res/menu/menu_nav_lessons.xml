@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_nav_lesson_1"
+        android:title="@string/menu_nav_lesson_1" />
+    <item
+        android:id="@+id/menu_nav_lesson_6"
+        android:title="@string/menu_nav_lesson_6" />
+    <item
+        android:id="@+id/menu_nav_lesson_7"
+        android:title="@string/menu_nav_lesson_7" />
+</menu>
