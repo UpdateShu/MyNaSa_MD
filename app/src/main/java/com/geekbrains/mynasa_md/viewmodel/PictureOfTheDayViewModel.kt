@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel
 import com.geekbrains.mynasa_md.BuildConfig
 import com.geekbrains.mynasa_md.model.PictureOfTheDayResponseData
 import com.geekbrains.mynasa_md.model.RepositoryImpl
-import com.geekbrains.mynasa_md.utils.Constants
-import com.geekbrains.mynasa_md.utils.Constants.CORRUPTED_DATA
-import com.geekbrains.mynasa_md.utils.Constants.PROJECT_ERROR
-import com.geekbrains.mynasa_md.utils.Constants.SERVER_REQUEST_ERROR
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants.CORRUPTED_DATA
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants.PROJECT_ERROR
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants.SERVER_REQUEST_ERROR
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

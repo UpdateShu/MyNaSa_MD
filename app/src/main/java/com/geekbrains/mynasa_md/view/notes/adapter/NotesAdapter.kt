@@ -14,9 +14,9 @@ import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.ItemHeaderBinding
 import com.geekbrains.mynasa_md.databinding.ItemNoteBinding
 import com.geekbrains.mynasa_md.model.MyNote
-import com.geekbrains.mynasa_md.utils.Constants.TYPE_HEADER
-import com.geekbrains.mynasa_md.utils.Constants.TYPE_NOTE
-import com.geekbrains.mynasa_md.utils.getDate
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants.TYPE_HEADER
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants.TYPE_NOTE
+import com.geekbrains.mynasa_md.viewmodel.utils.getDate
 import com.geekbrains.mynasa_md.view.notes.OnNoteActionListener
 import com.geekbrains.mynasa_md.view.notes.touch.helper.OnTouchHelperAdapter
 import com.geekbrains.mynasa_md.view.notes.touch.helper.OnTouchHelperViewHolder

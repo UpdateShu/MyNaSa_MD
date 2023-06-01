@@ -1,4 +1,4 @@
-package com.geekbrains.mynasa_md.utils
+package com.geekbrains.mynasa_md.viewmodel.utils
 
 import com.geekbrains.mynasa_md.BuildConfig
 import com.geekbrains.mynasa_md.R
@@ -23,4 +23,10 @@ object Constants {
 
     const val TYPE_HEADER: Int = 1
     const val TYPE_NOTE: Int = 2
+
+    const val DEFAULT_THEME = -1
+
+    const val KEY_CLICK_SAVE_THEME = "KEY_CLICK_SAVE_THEME"
+    const val ARG_CLICK_SAVE_THEME = "ARG_CLICK_SAVE_THEME"
+    const val ARG_THEME = "SettingThemeFragment.ARG_THEME"
 }

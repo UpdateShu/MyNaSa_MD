@@ -18,8 +18,13 @@
     <string name="menu_bab_fav">Favourite</string>
 
     <string name="menu_nav_lesson_1">Урок 1. Картинка дня</string>
+    <string name="menu_nav_lesson_2">Урок 2. Выбор темы</string>
     <string name="menu_nav_lesson_6">Урок 6. RecyclerView</string>
     <string name="menu_nav_lesson_7">Урок 7. Шрифты</string>
+
+    <string name="cyan_theme">Голубая тема</string>
+    <string name="pink_theme">Розовая тема</string>
+    <string name="purple_theme">Фиолетовая тема</string>
 
     <string name="menu_other_fab_exit">Back</string>
     <string name="menu_other_search">Find</string>
@@ -29,6 +34,7 @@
     <string name="chip_3">Сегодня</string>
     <string name="chip_4">Завтра</string>
     <string name="header">Header</string>
+
     <string name="hint_note_text">Текст заметки</string>
     <string name="hint_note_created"></string>
     <string name="btn_save">Save</string>

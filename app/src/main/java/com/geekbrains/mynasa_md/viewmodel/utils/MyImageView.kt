@@ -1,4 +1,4 @@
-package com.geekbrains.mynasa_md.utils
+package com.geekbrains.mynasa_md.viewmodel.utils
 
 import android.content.Context
 import android.util.AttributeSet

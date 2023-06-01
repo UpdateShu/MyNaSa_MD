@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_card_theme"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margin_8"
+    android:layout_marginVertical="@dimen/margin_4">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_gravity="center_vertical"
+        android:paddingTop="@dimen/theme_padding_top"
+        android:layout_margin="@dimen/theme_margin"
+
+        android:id="@+id/item_card_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fontFamily="@font/cormorant_unicase_light"
+        android:textSize="@dimen/title_text_size"/>
+
+    <com.geekbrains.mynasa_md.viewmodel.utils.EquilateralImageView
+        android:layout_margin="@dimen/margin_4"
+        android:id="@+id/item_card_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:src="@drawable/ic_baseline_check_circle_24" />
+</androidx.cardview.widget.CardView>
