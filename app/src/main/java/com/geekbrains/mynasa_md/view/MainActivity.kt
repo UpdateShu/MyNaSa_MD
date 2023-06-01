@@ -10,9 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.ui.AppBarConfiguration
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.ActivityMainBinding
-import com.geekbrains.mynasa_md.utils.Constants.BACKSTACK
-import com.geekbrains.mynasa_md.utils.Constants.NO_BACKSTACK
-import com.geekbrains.mynasa_md.utils.Constants.TAG_MA
+import com.geekbrains.mynasa_md.model.theme.ThemeStorage
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants.ARG_CLICK_SAVE_THEME
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants.BACKSTACK
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants.KEY_CLICK_SAVE_THEME
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants.NO_BACKSTACK
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants.TAG_MA
 import com.geekbrains.mynasa_md.view.notes.NotesFragment
 import com.google.android.material.bottomappbar.BottomAppBar
 
@@ -21,13 +24,23 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
+    private val themeStorage : ThemeStorage = ThemeStorage(this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         //WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
+        setTheme(themeStorage.getTheme().theme)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.aBottomAppBar)
+        supportFragmentManager.setFragmentResultListener(KEY_CLICK_SAVE_THEME, this
+        ) { _, result ->
+            val keySaveTheme = result.getInt(ARG_CLICK_SAVE_THEME)
+            themeStorage.saveTheme(keySaveTheme)
+            this.recreate()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -46,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d(TAG_MA, "menu Favourite")
             }
             android.R.id.home -> {
-                LessonsNavigationFragment().show(supportFragmentManager, "")
+                LessonsNavigationFragment(themeStorage.getTheme().key).show(supportFragmentManager, "")
                 Log.d(TAG_MA, "menu Home")
             }
 

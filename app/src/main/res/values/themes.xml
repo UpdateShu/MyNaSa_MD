@@ -4,23 +4,26 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
-        <item name="colorSurface">@color/material_green_200</item>
+        <item name="android:statusBarColor">?colorTheme_400</item>
+        <item name="android:navigationBarColor">?colorTheme_500</item>
+        <item name="colorPrimary">?colorTheme_600</item>
+        <item name="colorOnPrimary">?colorTheme_50</item>
+        <item name="colorPrimaryContainer">?colorTheme_100</item>
+        <item name="colorOnPrimaryContainer">?colorTheme_900</item>
+        <item name="colorPrimaryInverse">?colorTheme_200</item>
+        <item name="colorSecondary">?colorTheme_600</item>
+        <item name="colorOnSecondary">?colorTheme_50</item>
+        <item name="colorSecondaryContainer">?colorTheme_100</item>
+        <item name="colorOnSecondaryContainer">?colorTheme_900</item>
+        <item name="colorTertiary">?colorTheme_600</item>
+        <item name="colorOnTertiary">?colorTheme_50</item>
+        <item name="colorTertiaryContainer">?colorTheme_100</item>
+        <item name="colorOnTertiaryContainer">?colorTheme_900</item>
+
+        <item name="colorSurface">?colorTheme_200</item>
         <item name="chipStyle">@style/MyChipStyle</item>
         <item name="textInputStyle">@style/MyTextInputStyle</item>
         <item name="editTextStyle">@style/MyEditTextStyle</item>
-    </style>
-
-    <style name="MyChipStyle" parent="Widget.Material3.Chip.Suggestion">
-        <item name="chipBackgroundColor">@drawable/my_selector_backgroundchip</item>
-        <item name="rippleColor">@color/material_amber_400</item>
-    </style>
-
-    <style name="MyTextInputStyle" parent="Widget.AppCompat.TextView">
-        <item name="fontFamily">@font/cormorant_unicase_light</item>
-    </style>
-
-    <style name="MyEditTextStyle" parent="Widget.AppCompat.EditText">
-        <item name="fontFamily">@font/cormorant_unicase_light</item>
     </style>
 
     <style name="Theme.MyNaSa_MD" parent="Base.Theme.MyNaSa_MD">

@@ -15,7 +15,7 @@
         android:padding="10dp"
         android:layout_marginHorizontal="@dimen/list_horizontal_margin"
         android:layout_marginVertical="@dimen/list_vertical_margin"
-        android:background="@color/material_green_200">
+        android:background="?colorTheme_200">
 
         <LinearLayout
             android:id="@+id/note_header"
@@ -91,7 +91,7 @@
                 android:layout_width="@dimen/_55dp"
                 android:layout_height="@dimen/_55dp"
                 android:src="@drawable/ic_baseline_delete_outline_24" />
-            />
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

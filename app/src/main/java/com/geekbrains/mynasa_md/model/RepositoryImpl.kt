@@ -1,8 +1,8 @@
 package com.geekbrains.mynasa_md.model
 
 import com.geekbrains.mynasa_md.databinding.FragmentPictureBinding
-import com.geekbrains.mynasa_md.utils.Constants.TYPE_HEADER
-import com.geekbrains.mynasa_md.utils.Constants.TYPE_NOTE
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants.TYPE_HEADER
+import com.geekbrains.mynasa_md.viewmodel.utils.Constants.TYPE_NOTE
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

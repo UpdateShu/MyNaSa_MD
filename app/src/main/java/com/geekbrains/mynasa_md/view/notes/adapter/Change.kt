@@ -5,7 +5,7 @@ data class Change<out T>(
     val newData: T
 )
 
-fun <T> createPayloads(payloads: List<Change<T>>) : Change<T>{
+fun <T> createPayloads(payloads: List<Change<T>>) : Change<T> {
     val old = payloads.first()
     val new = payloads.last()
     return Change(old.oldData, new.newData)

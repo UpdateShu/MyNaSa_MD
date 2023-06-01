@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyChipStyle" parent="Widget.Material3.Chip.Suggestion">
+        <!--<item name="chipBackgroundColor">@drawable/my_selector_backgroundchip</item>-->
+        <item name="rippleColor">?colorTheme_800</item>
+        <item name="backgroundTint">?colorTheme_50</item>
+    </style>
+
+    <style name="MyBottomAppBar" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="backgroundTint">?colorTheme_500</item>
+        <item name="navigationIconTint">?colorTheme_50</item>
+    </style>
+
+    <style name="MyFabBottomAppBar" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">?colorTheme_900</item>
+    </style>
+
+    <style name="MyTextInputStyle" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/cormorant_unicase_light</item>
+    </style>
+
+    <style name="MyEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="fontFamily">@font/cormorant_unicase_light</item>
+    </style>
+
+</resources>
