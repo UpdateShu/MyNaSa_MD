@@ -4,9 +4,9 @@
     android:id="@+id/fdialog_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    style="@style/MyAdditionalView"
     app:behavior_hideable="true"
     app:behavior_peekHeight="50dp"
-    android:background="@color/material_amber_100"
     app:layout_behavior="@string/bottom_sheet_behavior">
 
     <View

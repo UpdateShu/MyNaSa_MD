@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_earth"
+        android:icon="@drawable/ic_earth"
+        android:title="@string/earth"
+        app:tooltipText="@string/earth_description"/>
+    <item
+        android:id="@+id/menu_mars"
+        android:icon="@drawable/ic_mars"
+        android:title="@string/mars"
+        app:tooltipText="@string/mars_description"/>
+    <item
+        android:id="@+id/menu_solar_flares"
+        android:icon="@drawable/baseline_wb_sunny_24"
+        android:title="@string/solar_flares"
+        app:tooltipText="@string/solar_flares_description"/>
+
+</menu>

@@ -1,18 +1,20 @@
 package com.geekbrains.mynasa_md.view
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.LessonsNavigationFragmentBinding
+import com.geekbrains.mynasa_md.view.navigation.ViewPagerFragment
 import com.geekbrains.mynasa_md.view.notes.NotesFragment
 import com.geekbrains.mynasa_md.view.themes.SettingThemeFragment
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class LessonsNavigationFragment(private var keyTheme: Int) : BottomSheetDialogFragment() {
+
+class LessonsNavigationFragment(private var keyTheme: Int) : DialogFragment() {
 
     private var _binding: LessonsNavigationFragmentBinding? = null
     private val binding get() = _binding!!
@@ -23,6 +25,7 @@ class LessonsNavigationFragment(private var keyTheme: Int) : BottomSheetDialogFr
         savedInstanceState: Bundle?
     ): View? {
         _binding = LessonsNavigationFragmentBinding.inflate(inflater, container,false)
+        dialog?.window?.setGravity(Gravity.TOP or Gravity.LEFT)
 
         return binding.root
     }
@@ -38,6 +41,9 @@ class LessonsNavigationFragment(private var keyTheme: Int) : BottomSheetDialogFr
                 }
                 R.id.menu_nav_lesson_2 -> {
                     showLesson(SettingThemeFragment.newInstance(keyTheme))
+                }
+                R.id.menu_nav_lesson_3 -> {
+                    showLesson(ViewPagerFragment.newInstance())
                 }
                 R.id.menu_nav_lesson_6 -> {
                     showLesson(NotesFragment.newInstance())

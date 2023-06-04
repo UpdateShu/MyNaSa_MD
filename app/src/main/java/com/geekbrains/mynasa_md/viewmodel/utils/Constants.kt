@@ -29,4 +29,8 @@ object Constants {
     const val KEY_CLICK_SAVE_THEME = "KEY_CLICK_SAVE_THEME"
     const val ARG_CLICK_SAVE_THEME = "ARG_CLICK_SAVE_THEME"
     const val ARG_THEME = "SettingThemeFragment.ARG_THEME"
+
+    const val EARTH_KEY = 0
+    const val MARS_KEY = 1
+    const val SOLAR_SYSTEM_KEY = 2
 }

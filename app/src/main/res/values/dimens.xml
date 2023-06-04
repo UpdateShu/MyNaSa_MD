@@ -20,9 +20,20 @@
     <dimen name="_52dp">52dp</dimen>
     <dimen name="_55dp">40dp</dimen>
 
+    <dimen name="_t25sp">25sp</dimen>
+    <dimen name="_t20sp">20sp</dimen>
+    <dimen name="_t18sp">18sp</dimen>
+    <dimen name="_s8dp">8dp</dimen>
+    <dimen name="_s4dp">4dp</dimen>
+    <dimen name="_s16dp">16dp</dimen>
+
     <dimen name="note_created_width">100dp</dimen>
     <dimen name="picture_description_height">200dp</dimen>
     <dimen name="description_textSize">24dp</dimen>
     <dimen name="theme_margin">10dp</dimen>
     <dimen name="theme_padding_top">20dp</dimen>
+    <dimen name="nasa_layout_height">80dp</dimen>
+    <dimen name="swipe_margin">10dp</dimen>
+    <dimen name="swipes_margin_bottom">100dp</dimen>
+    <dimen name="main_menu_height">80dp</dimen>
 </resources>
