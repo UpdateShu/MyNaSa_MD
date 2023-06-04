@@ -1,13 +1,20 @@
-package com.geekbrains.mynasa_md.model
+package com.geekbrains.mynasa_md.model.repo
 
-import com.geekbrains.mynasa_md.databinding.FragmentPictureBinding
+import com.geekbrains.mynasa_md.model.MyNote
+import com.geekbrains.mynasa_md.model.response.EarthResponseData
+import com.geekbrains.mynasa_md.model.response.MarsResponseData
+import com.geekbrains.mynasa_md.model.response.PhotoMarsResponseData
+import com.geekbrains.mynasa_md.model.response.PictureOfTheDayResponseData
+import com.geekbrains.mynasa_md.model.response.SolarFlareResponseData
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.TYPE_HEADER
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.TYPE_NOTE
 import com.google.gson.GsonBuilder
+import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class RepositoryImpl : Repository {
+
     private val baseUrl = "https://api.nasa.gov/"
 
     private val retrofit by lazy {
@@ -15,10 +22,26 @@ class RepositoryImpl : Repository {
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .build()
+            .create(RetrofitAPI::class.java)
     }
 
-    fun getPictureOfTheDayApi(): PictureOfTheDayAPI {
-        return retrofit.create(PictureOfTheDayAPI::class.java)
+    fun getPictureOfTheDay(apiKey: String,
+                           date: String,
+                           podCallback: Callback<PictureOfTheDayResponseData>) {
+        retrofit.getPictureOfTheDay(apiKey, date).enqueue(podCallback)
+    }
+
+    fun getEarth(apiKey: String, eCallback: Callback<List<EarthResponseData>>) {
+        retrofit.getEarth(apiKey).enqueue(eCallback)
+    }
+
+    fun getMars(apiKey: String, mCallback: Callback<PhotoMarsResponseData>) {
+        retrofit.getMars(sol=1000, apiKey).enqueue(mCallback)
+    }
+
+    fun getSolarFlares(apiKey: String, sCallback: Callback<List<SolarFlareResponseData>>,
+                      startDate: String = "2023-05-01", endDate: String = "2023-05-30") {
+        retrofit.getSolarFlare(apiKey, startDate, endDate).enqueue(sCallback)
     }
 
     fun getDataRepos() : MutableList<Pair<MyNote, Boolean>> = editNotes

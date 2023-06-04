@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.geekbrains.mynasa_md.model.response.PictureOfTheDayResponseData
 import com.geekbrains.mynasa_md.model.repo.RepositoryImpl
 import com.geekbrains.mynasa_md.model.response.ResponseData
+import com.geekbrains.mynasa_md.model.response.SolarFlareResponseData
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.CORRUPTED_DATA
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.PROJECT_ERROR
@@ -14,26 +15,26 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PictureOfTheDayViewModel(
+class SolarFlareViewModel(
     private val liveData: MutableLiveData<AppState> = MutableLiveData(),
     private val repositoryImpl: RepositoryImpl = RepositoryImpl()
-) :ViewModel()
+) : ViewModel()
 {
     //получить liveData
     fun getLiveData(): LiveData<AppState> = liveData
 
     //послать серверный запрос
-    fun sendRequest(progress: Int? = null, date: String) {
+    fun sendRequest(progress: Int? = null){
         liveData.postValue(AppState.Loading(progress))
-        repositoryImpl.getPictureOfTheDay(Constants.NASA_API_KEY, date, callback)
+        repositoryImpl.getSolarFlares(Constants.NASA_API_KEY, callback)
     }
 
-    private val callback = object : Callback<PictureOfTheDayResponseData> {
+    private val callback = object : Callback<List<SolarFlareResponseData>> {
         override fun onResponse(
-            call: Call<PictureOfTheDayResponseData>,
-            response: Response<PictureOfTheDayResponseData>
+            call: Call<List<SolarFlareResponseData>>,
+            response: Response<List<SolarFlareResponseData>>
         ) {
-            val serverResponse: PictureOfTheDayResponseData? = response.body()
+            val serverResponse: List<SolarFlareResponseData>? = response.body()
             liveData.postValue(
                 if (response.isSuccessful) {
                     checkDataResponse(serverResponse)
@@ -43,17 +44,17 @@ class PictureOfTheDayViewModel(
             )
         }
 
-        override fun onFailure(call: Call<PictureOfTheDayResponseData>, t: Throwable) {
-            AppState.Error(Throwable(PROJECT_ERROR.toString()))
-        }
-
-        private fun checkDataResponse(serverResponse: PictureOfTheDayResponseData?): AppState
+        private fun checkDataResponse(serverResponse: List<SolarFlareResponseData>?): AppState
         {
             return if (serverResponse == null) {
                 AppState.Error(Throwable(CORRUPTED_DATA.toString()))
             } else {
-                AppState.Success(ResponseData(pictureOfTheDay = serverResponse))
+                AppState.Success(ResponseData(solarFlares = serverResponse))
             }
+        }
+
+        override fun onFailure(call: Call<List<SolarFlareResponseData>>, t: Throwable) {
+            AppState.Error(Throwable(PROJECT_ERROR.toString()))
         }
     }
 }

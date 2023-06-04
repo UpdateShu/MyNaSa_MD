@@ -13,6 +13,6 @@ class EquilateralImageView @JvmOverloads constructor (
 
     // todo Переопределение метода размера ImageView, super.onMeasure(ширина, высота)
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, widthMeasureSpec)
+        super.onMeasure(widthMeasureSpec, widthMeasureSpec )
     }
 }

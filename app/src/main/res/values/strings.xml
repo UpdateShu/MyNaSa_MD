@@ -13,18 +13,28 @@
     <string name="corrupted_data">ПОТЕРЯ_ДАННЫХ</string>
     <string name="reload">RELOAD</string>
     <string name="video_info">Не поддерживает видео материал</string>
+    <string name="play_video">Открыть видеоролик</string>
 
     <string name="menu_bab_setting">Setting</string>
     <string name="menu_bab_fav">Favourite</string>
 
     <string name="menu_nav_lesson_1">Урок 1. Картинка дня</string>
     <string name="menu_nav_lesson_2">Урок 2. Выбор темы</string>
+    <string name="menu_nav_lesson_3">Урок 3. Навигация</string>
     <string name="menu_nav_lesson_6">Урок 6. RecyclerView</string>
     <string name="menu_nav_lesson_7">Урок 7. Шрифты</string>
 
     <string name="cyan_theme">Голубая тема</string>
     <string name="pink_theme">Розовая тема</string>
     <string name="purple_theme">Фиолетовая тема</string>
+
+    <string name="title_activity_view_pager">ViewPagerActivity</string>
+    <string name="earth">Земля</string>
+    <string name="mars">Марс</string>
+    <string name="solar_flares">Солнечные вспышки</string>
+    <string name="solar_flares_description">Погода на солнце</string>
+    <string name="earth_description">3я планета в солнечной системе</string>
+    <string name="mars_description">4я планета в солнечной системе</string>
 
     <string name="menu_other_fab_exit">Back</string>
     <string name="menu_other_search">Find</string>

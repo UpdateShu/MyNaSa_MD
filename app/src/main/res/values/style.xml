@@ -24,4 +24,12 @@
         <item name="fontFamily">@font/cormorant_unicase_light</item>
     </style>
 
+    <style name="MyImageViewStyle">
+        <item name="android:background">@color/material_amber_50</item>
+    </style>
+
+    <style name="MyAdditionalView">
+        <item name="android:background">@color/material_amber_100</item>
+    </style>
+
 </resources>

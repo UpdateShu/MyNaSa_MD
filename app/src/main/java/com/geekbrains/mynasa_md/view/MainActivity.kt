@@ -1,5 +1,7 @@
 package com.geekbrains.mynasa_md.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -11,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.ActivityMainBinding
 import com.geekbrains.mynasa_md.model.theme.ThemeStorage
+import com.geekbrains.mynasa_md.view.navigation.BottomNavigationFragment
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.ARG_CLICK_SAVE_THEME
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.BACKSTACK
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.KEY_CLICK_SAVE_THEME
@@ -41,6 +44,10 @@ class MainActivity : AppCompatActivity() {
             themeStorage.saveTheme(keySaveTheme)
             this.recreate()
         }
+        supportFragmentManager.setFragmentResultListener(KEY_URL, this){_, result ->
+            val url = result.getString(ARG_URL)
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -56,7 +63,8 @@ class MainActivity : AppCompatActivity() {
                 //showFragment(PictureOfTheDayFragment.newInstance(), BACKSTACK)
             }
             R.id.menu_bab_fav -> {
-                Log.d(TAG_MA, "menu Favourite")
+                showLesson(BottomNavigationFragment.newInstance())
+                Log.d(TAG_MA, "menu Bottom Navigation")
             }
             android.R.id.home -> {
                 LessonsNavigationFragment(themeStorage.getTheme().key).show(supportFragmentManager, "")
@@ -65,5 +73,11 @@ class MainActivity : AppCompatActivity() {
 
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    fun showLesson(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.lessons_view_container, fragment)
+            .commit()
     }
 }

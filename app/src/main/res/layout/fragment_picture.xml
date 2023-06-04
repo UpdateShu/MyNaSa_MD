@@ -19,10 +19,10 @@
             app:endIconDrawable="@drawable/ic_outline_search_24"
             app:endIconMode="custom"
             app:helperText="@string/wiki_helper"
-            app:layout_constraintBottom_toTopOf="@id/f_pictures_chip_group"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/f_pictures_chip_group"
             app:startIconDrawable="@drawable/ic_wikipedia_letter_2">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -33,15 +33,15 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.chip.ChipGroup
+            android:id="@+id/f_pictures_chip_group"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:singleSelection="true"
             android:padding="@dimen/margin_8"
-            android:id="@+id/f_pictures_chip_group"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fpictures_text_input_layout"
-            app:layout_constraintBottom_toTopOf="@id/fpictures_imageview">
+            app:layout_constraintBottom_toTopOf="@id/fm_button_video"
+            app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chips_3"
@@ -59,28 +59,41 @@
                 android:id="@+id/chips_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/chip_3"/>
+                android:text="@string/chip_3" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chips_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:enabled="false"
-                android:text="@string/chip_4"/>
+                android:text="@string/chip_4" />
 
         </com.google.android.material.chip.ChipGroup>
 
-        <com.geekbrains.mynasa_md.viewmodel.utils.MyImageView
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fm_button_video"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_pictures_chip_group"
+            app:layout_constraintBottom_toTopOf="@id/fpictures_imageview"
+            android:visibility="visible"
+            android:text="@string/play_video" />
+
+        <com.geekbrains.mynasa_md.viewmodel.utils.EquilateralImageView
             android:id="@+id/fpictures_imageview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/f_pictures_chip_group">
-        </com.geekbrains.mynasa_md.viewmodel.utils.MyImageView>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_pictures_chip_group"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        </com.geekbrains.mynasa_md.viewmodel.utils.EquilateralImageView>
 
         <ProgressBar
             android:id="@+id/fpictures_progress"

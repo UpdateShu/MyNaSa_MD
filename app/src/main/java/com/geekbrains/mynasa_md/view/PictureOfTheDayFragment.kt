@@ -2,6 +2,7 @@ package com.geekbrains.mynasa_md.view
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
@@ -16,10 +17,12 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.graphics.drawable.toDrawable
+import androidx.core.graphics.scaleMatrix
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import coil.transform.CircleCropTransformation
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.FragmentPictureBinding
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.DAY_BEFORE_YESTERDAY
@@ -29,10 +32,13 @@ import com.geekbrains.mynasa_md.viewmodel.utils.Constants.WIKI_URI
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.YESTERDAY
 import com.geekbrains.mynasa_md.viewmodel.utils.getDate
 import com.geekbrains.mynasa_md.viewmodel.utils.showSnackBarAction
-import com.geekbrains.mynasa_md.viewmodel.utils.showSnackBarNoAction
 import com.geekbrains.mynasa_md.viewmodel.AppState
 import com.geekbrains.mynasa_md.viewmodel.PictureOfTheDayViewModel
+import com.geekbrains.mynasa_md.viewmodel.utils.showSnackBarNoAction
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+
+const val KEY_URL = "KEY_URL"
+const val ARG_URL = "ARG_URL"
 
 class PictureOfTheDayFragment : Fragment() {
 
@@ -42,6 +48,8 @@ class PictureOfTheDayFragment : Fragment() {
 
     private var _binding: FragmentPictureBinding? = null
     private val binding get() = _binding!!
+
+    private var _url : String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,9 +77,8 @@ class PictureOfTheDayFragment : Fragment() {
                 data = Uri.parse(WIKI_URI + binding.fpicturesTextInputEditText.text.toString())
             })
         }
-
         initBottomSheet()
-        //viewModel.sendRequest(date = getDate(1))
+        viewModel.sendRequest(date = getDate(1))
 
         binding.chips3.setOnClickListener {
             viewModel.sendRequest(date = getDate(DAY_BEFORE_YESTERDAY))
@@ -81,6 +88,14 @@ class PictureOfTheDayFragment : Fragment() {
         }
         binding.chips1.setOnClickListener {
             viewModel.sendRequest(date = getDate(TODAY))
+        }
+        binding.fmButtonVideo.setOnClickListener {
+            parentFragmentManager.setFragmentResult(KEY_URL, Bundle().apply {
+                if (!_url.isEmpty()) {
+                    //putString(ARG_URL, url1) //todo для проверки
+                    putString(ARG_URL, _url)
+                }
+            })
         }
         activity?.let {
             binding.fPicturesBottomSheet.fBottomSheetDescription.typeface =
@@ -134,12 +149,10 @@ class PictureOfTheDayFragment : Fragment() {
                     }
                 }
             }
-
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
                 //todo возвращает значение, на сколько сейчас BottomSheet открыт
                 Log.d(TAG_BS, "onSlide: $slideOffset")
             }
-
         })
     }
 
@@ -171,37 +184,45 @@ class PictureOfTheDayFragment : Fragment() {
             }
 
             is AppState.Success -> {
-                binding.fpicturesImageview.isVisible = true
-                binding.fpicturesProgress.isVisible = false
-                if (state.pictureOfTheDayResponseData.url.toString().takeLast(4) == ".jpg") {
-                    if (state.pictureOfTheDayResponseData.hdurl == null) {
-                        binding.fpicturesImageview.load(state.pictureOfTheDayResponseData.url)
+                state.responseData.pictureOfTheDay?.let { data ->
+                    binding.fpicturesImageview.isVisible = true
+                    binding.fpicturesProgress.isVisible = false
+                    _url = data.url
+                    if (_url.takeLast(4) == ".jpg") {
+                        binding.fpicturesImageview.isVisible = true
+                        binding.fmButtonVideo.isVisible = false
+
+                        if (data.hdurl.isEmpty()) {
+                            binding.fpicturesImageview.load(data.url)
+                        } else {
+                            binding.fpicturesImageview.load(data.hdurl)
+                        }
                     } else {
-                        binding.fpicturesImageview.load(state.pictureOfTheDayResponseData.hdurl)
+                        binding.fpicturesImageview.isVisible = false
+                        binding.fmButtonVideo.isVisible = true
+
+                        binding.fpicturesImageview.setImageDrawable(R.drawable.ic_outline_image_24.toDrawable())
+                        binding.fpicturesProgress.showSnackBarNoAction(resources.getString(R.string.video_info))
                     }
-                } else {
-                    binding.fpicturesImageview.setImageDrawable(R.drawable.ic_outline_image_24.toDrawable())
-                    binding.fpicturesProgress.showSnackBarNoAction(resources.getString(R.string.video_info))
-                }
+                    with(binding.fPicturesBottomSheet) {
+                        fBottomSheetTitle.text = data.title
 
-                with(binding.fPicturesBottomSheet) {
-                    fBottomSheetTitle.text = state.pictureOfTheDayResponseData.title
+                        context?.let {
+                            val spannableManager = SpannableManager(it)
+                            var spannableTitle =
+                                SpannableStringBuilder(data.title)
+                            fBottomSheetTitle.setText(spannableTitle,
+                                TextView.BufferType.EDITABLE)
+                            spannableTitle = fBottomSheetTitle.text as SpannableStringBuilder
+                            spannableManager.setSpannableTitle(spannableTitle)
 
-                    context?.let {
-                        val spannableManager = SpannableManager(it)
-                        var spannableTitle =
-                            SpannableStringBuilder(state.pictureOfTheDayResponseData.title)
-                        fBottomSheetTitle.setText(spannableTitle,
-                            TextView.BufferType.EDITABLE)
-                        spannableTitle = fBottomSheetTitle.text as SpannableStringBuilder
-                        spannableManager.setSpannableTitle(spannableTitle)
-
-                        var spannableDescription =
-                            SpannableStringBuilder(state.pictureOfTheDayResponseData.explanation)
-                        fBottomSheetDescription.setText(spannableDescription, TextView.BufferType.EDITABLE)
-                        spannableDescription = fBottomSheetDescription.text as SpannableStringBuilder
-                        spannableManager.setSpannableDescription(spannableDescription)
-                        fBottomSheetDescription.text = spannableDescription
+                            var spannableDescription =
+                                SpannableStringBuilder(data.explanation)
+                            fBottomSheetDescription.setText(spannableDescription, TextView.BufferType.EDITABLE)
+                            spannableDescription = fBottomSheetDescription.text as SpannableStringBuilder
+                            spannableManager.setSpannableDescription(spannableDescription)
+                            fBottomSheetDescription.text = spannableDescription
+                        }
                     }
                 }
             }
