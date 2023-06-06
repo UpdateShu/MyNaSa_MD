@@ -1,6 +1,5 @@
 package com.geekbrains.mynasa_md.view.notes.editor
 
-import android.widget.EditText
 import com.geekbrains.mynasa_md.model.MyNote
 
 interface EditNoteView {

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.FragmentEditNoteBinding
 import com.geekbrains.mynasa_md.model.MyNote
 

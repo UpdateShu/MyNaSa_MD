@@ -1,6 +1,5 @@
 package com.geekbrains.mynasa_md.view.themes
 
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,6 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.model.theme.Theme
-import com.geekbrains.mynasa_md.model.theme.ThemeStorage
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.DEFAULT_THEME
 import com.geekbrains.mynasa_md.viewmodel.utils.EquilateralImageView
 import com.google.android.material.textview.MaterialTextView

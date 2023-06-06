@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layoutDescription="@xml/motion_scene">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sun_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sun on"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sun_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sun off"
+        android:textColor="@color/white"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_sun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/sun_on"
+        android:layout_width="@dimen/sun_size"
+        android:layout_height="@dimen/sun_size"
+        android:alpha="1"
+        app:layout_constraintStart_toEndOf="@id/gl_sun"
+        app:layout_constraintTop_toTopOf="@id/btn_sun_on"
+        app:layout_constraintBottom_toBottomOf="@id/btn_sun_on"
+        android:src="@drawable/baseline_wb_sunny_24" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/sun_off"
+        android:layout_width="@dimen/sun_size"
+        android:layout_height="@dimen/sun_size"
+        android:alpha="0"
+        app:layout_constraintStart_toEndOf="@id/gl_sun"
+        app:layout_constraintTop_toTopOf="@id/btn_sun_on"
+        app:layout_constraintBottom_toBottomOf="@id/btn_sun_on"
+        android:src="@drawable/baseline_flare_24" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/flare"
+        android:layout_width="@dimen/sun_size"
+        android:layout_height="@dimen/sun_size"
+        android:src="@drawable/baseline_flare_24"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="3dp"
+        android:alpha="0.8"
+        app:layout_constraintStart_toEndOf="@id/gl_sun"
+        app:layout_constraintTop_toTopOf="@id/btn_sun_on"
+        app:layout_constraintBottom_toBottomOf="@id/btn_sun_on"/>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

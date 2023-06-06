@@ -1,6 +1,5 @@
 package com.geekbrains.mynasa_md.view.notes
 
-import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.mynasa_md.model.MyNote
 import com.geekbrains.mynasa_md.view.notes.adapter.NotesAdapter
 

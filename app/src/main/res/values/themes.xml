@@ -6,12 +6,12 @@
 
         <item name="android:statusBarColor">?colorTheme_400</item>
         <item name="android:navigationBarColor">?colorTheme_500</item>
-        <item name="colorPrimary">?colorTheme_600</item>
+        <item name="colorPrimary">?colorTheme_300</item>
         <item name="colorOnPrimary">?colorTheme_50</item>
         <item name="colorPrimaryContainer">?colorTheme_100</item>
         <item name="colorOnPrimaryContainer">?colorTheme_900</item>
         <item name="colorPrimaryInverse">?colorTheme_200</item>
-        <item name="colorSecondary">?colorTheme_600</item>
+        <item name="colorSecondary">?colorTheme_700</item>
         <item name="colorOnSecondary">?colorTheme_50</item>
         <item name="colorSecondaryContainer">?colorTheme_100</item>
         <item name="colorOnSecondaryContainer">?colorTheme_900</item>
@@ -24,6 +24,10 @@
         <item name="chipStyle">@style/MyChipStyle</item>
         <item name="textInputStyle">@style/MyTextInputStyle</item>
         <item name="editTextStyle">@style/MyEditTextStyle</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MyNaSa_MD">
+
     </style>
 
     <style name="Theme.MyNaSa_MD" parent="Base.Theme.MyNaSa_MD">

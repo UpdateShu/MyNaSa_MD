@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/coordinator_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/coordinator_collapsing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/earth_imageView"
+                style="@style/MyImageViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="matrix"
+                android:src="@drawable/bg_earth"
+                app:layout_collapseMode="parallax" />
+
+            <ProgressBar
+                android:id="@+id/earth_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/f_coordinator_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_s4dp"
+        app:layout_behavior=".view.layouts.ToNestedScrollBehavior">
+
+        <TextView
+            android:id="@+id/f_coordinator_scroll_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/earth_text_description" />
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/f_coordinator_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_s16dp"
+
+        android:src="@drawable/ic_earth"
+        app:layout_anchor="@id/coordinator_appbar"
+        app:layout_anchorGravity="bottom|end" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

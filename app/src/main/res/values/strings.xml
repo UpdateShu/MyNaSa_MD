@@ -13,18 +13,28 @@
     <string name="corrupted_data">ПОТЕРЯ_ДАННЫХ</string>
     <string name="reload">RELOAD</string>
     <string name="video_info">Не поддерживает видео материал</string>
+    <string name="play_video">Открыть видеоролик</string>
 
     <string name="menu_bab_setting">Setting</string>
     <string name="menu_bab_fav">Favourite</string>
 
     <string name="menu_nav_lesson_1">Урок 1. Картинка дня</string>
     <string name="menu_nav_lesson_2">Урок 2. Выбор темы</string>
+    <string name="menu_nav_lesson_3">Урок 3. Навигация</string>
     <string name="menu_nav_lesson_6">Урок 6. RecyclerView</string>
     <string name="menu_nav_lesson_7">Урок 7. Шрифты</string>
 
     <string name="cyan_theme">Голубая тема</string>
     <string name="pink_theme">Розовая тема</string>
     <string name="purple_theme">Фиолетовая тема</string>
+
+    <string name="title_activity_view_pager">ViewPagerActivity</string>
+    <string name="earth">Земля</string>
+    <string name="mars">Марс</string>
+    <string name="solar_flares">Солнечные вспышки</string>
+    <string name="solar_flares_description">Погода на солнце</string>
+    <string name="earth_description">3я планета в солнечной системе</string>
+    <string name="mars_description">4я планета в солнечной системе</string>
 
     <string name="menu_other_fab_exit">Back</string>
     <string name="menu_other_search">Find</string>
@@ -36,7 +46,7 @@
     <string name="header">Header</string>
 
     <string name="hint_note_text">Текст заметки</string>
-    <string name="hint_note_created"></string>
+    <string name="hint_note_created">01.06</string>
     <string name="btn_save">Save</string>
     <string name="btn_update">Update</string>
     <string name="add_new_note">Новая заметка</string>
@@ -47,4 +57,6 @@
     <string name="update_action">Обновить</string>
     <string name="delete_action">Удалить</string>
     <string name="default_header">Заголовок</string>
+
+    <string name="earth_text_description">EPIC\nThe EPIC API provides information on the daily imagery collected by DSCOVR\'s Earth Polychromatic Imaging Camera (EPIC) instrument. Uniquely positioned at the Earth-Sun Lagrange point, EPIC provides full disc imagery of the Earth and captures unique perspectives of certain astronomical events such as lunar transits using a 2048x2048 pixel CCD (Charge Coupled Device) detector coupled to a 30-cm aperture Cassegrain telescope.\nImage metadata and key information are provided by the JSON API and can be requested by date and for the most recent available date. A listing of all available dates can also be retrieved via the API for more granular control.\nDevelopment of the EPIC API began in 2015, and is supported by the web development team for the Laboratory for Atmospheres in the Earth Sciences Division of the Goddard Space Flight Center. More information regarding the API and retrieval of the imagery for download can be found on the EPIC website.</string>
 </resources>

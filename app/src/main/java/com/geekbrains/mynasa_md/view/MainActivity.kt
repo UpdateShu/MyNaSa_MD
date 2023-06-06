@@ -1,23 +1,22 @@
 package com.geekbrains.mynasa_md.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.ui.AppBarConfiguration
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.ActivityMainBinding
 import com.geekbrains.mynasa_md.model.theme.ThemeStorage
+import com.geekbrains.mynasa_md.view.navigation.BottomNavigationFragment
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.ARG_CLICK_SAVE_THEME
-import com.geekbrains.mynasa_md.viewmodel.utils.Constants.BACKSTACK
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.KEY_CLICK_SAVE_THEME
-import com.geekbrains.mynasa_md.viewmodel.utils.Constants.NO_BACKSTACK
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.TAG_MA
-import com.geekbrains.mynasa_md.view.notes.NotesFragment
-import com.google.android.material.bottomappbar.BottomAppBar
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,17 +28,30 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         //WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
-        setTheme(themeStorage.getTheme().theme)
 
+        setTheme(themeStorage.getTheme().theme)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.aBottomAppBar)
+
+        //showFragment(SplashFragment.newInstance())
+        supportFragmentManager.beginTransaction()
+            .add(R.id.splash_view_container, SplashFragment.newInstance())
+            .addToBackStack(null)
+            .commit()
+        Handler(mainLooper).postDelayed({
+            supportFragmentManager.popBackStack()
+            showFragment(BottomNavigationFragment.newInstance())
+        }, 3000L)
         supportFragmentManager.setFragmentResultListener(KEY_CLICK_SAVE_THEME, this
         ) { _, result ->
             val keySaveTheme = result.getInt(ARG_CLICK_SAVE_THEME)
             themeStorage.saveTheme(keySaveTheme)
             this.recreate()
+        }
+        supportFragmentManager.setFragmentResultListener(KEY_URL, this){_, result ->
+            val url = result.getString(ARG_URL)
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
         }
     }
 
@@ -56,7 +68,8 @@ class MainActivity : AppCompatActivity() {
                 //showFragment(PictureOfTheDayFragment.newInstance(), BACKSTACK)
             }
             R.id.menu_bab_fav -> {
-                Log.d(TAG_MA, "menu Favourite")
+                showFragment(BottomNavigationFragment.newInstance())
+                Log.d(TAG_MA, "menu Bottom Navigation")
             }
             android.R.id.home -> {
                 LessonsNavigationFragment(themeStorage.getTheme().key).show(supportFragmentManager, "")
@@ -65,5 +78,11 @@ class MainActivity : AppCompatActivity() {
 
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    fun showFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.lessons_view_container, fragment)
+            .commit()
     }
 }

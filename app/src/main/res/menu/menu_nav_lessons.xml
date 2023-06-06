@@ -8,6 +8,9 @@
         android:id="@+id/menu_nav_lesson_2"
         android:title="@string/menu_nav_lesson_2" />
     <item
+        android:id="@+id/menu_nav_lesson_3"
+        android:title="@string/menu_nav_lesson_3" />
+    <item
         android:id="@+id/menu_nav_lesson_6"
         android:title="@string/menu_nav_lesson_6" />
 </menu>

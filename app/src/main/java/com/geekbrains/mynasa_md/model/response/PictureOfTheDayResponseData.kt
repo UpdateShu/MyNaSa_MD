@@ -1,4 +1,4 @@
-package com.geekbrains.mynasa_md.model
+package com.geekbrains.mynasa_md.model.response
 
 import com.google.gson.annotations.SerializedName
 

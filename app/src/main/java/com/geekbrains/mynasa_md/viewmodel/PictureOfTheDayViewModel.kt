@@ -3,9 +3,9 @@ package com.geekbrains.mynasa_md.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.geekbrains.mynasa_md.BuildConfig
-import com.geekbrains.mynasa_md.model.PictureOfTheDayResponseData
-import com.geekbrains.mynasa_md.model.RepositoryImpl
+import com.geekbrains.mynasa_md.model.response.PictureOfTheDayResponseData
+import com.geekbrains.mynasa_md.model.repo.RepositoryImpl
+import com.geekbrains.mynasa_md.model.response.ResponseData
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.CORRUPTED_DATA
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.PROJECT_ERROR
@@ -25,8 +25,7 @@ class PictureOfTheDayViewModel(
     //послать серверный запрос
     fun sendRequest(progress: Int? = null, date: String) {
         liveData.postValue(AppState.Loading(progress))
-        repositoryImpl.getPictureOfTheDayApi().getPictureByDate(Constants.NASA_API_KEY, date)
-            .enqueue(callback)
+        repositoryImpl.getPictureOfTheDay(Constants.NASA_API_KEY, date, callback)
     }
 
     private val callback = object : Callback<PictureOfTheDayResponseData> {
@@ -53,7 +52,7 @@ class PictureOfTheDayViewModel(
             return if (serverResponse == null) {
                 AppState.Error(Throwable(CORRUPTED_DATA.toString()))
             } else {
-                AppState.Success(serverResponse)
+                AppState.Success(ResponseData(pictureOfTheDay = serverResponse))
             }
         }
     }

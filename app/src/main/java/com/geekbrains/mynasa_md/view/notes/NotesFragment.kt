@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.FragmentNotesBinding
 import com.geekbrains.mynasa_md.model.MyNote
-import com.geekbrains.mynasa_md.model.Repository
-import com.geekbrains.mynasa_md.model.RepositoryImpl
+import com.geekbrains.mynasa_md.model.repo.Repository
+import com.geekbrains.mynasa_md.model.repo.RepositoryImpl
 import com.geekbrains.mynasa_md.view.notes.adapter.NotesAdapter
 import com.geekbrains.mynasa_md.view.notes.adapter.RecyclerItemDecoration
 import com.geekbrains.mynasa_md.view.notes.editor.EditNoteFragment
