@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.geekbrains.mynasa_md.model.repo.RepositoryImpl
-import com.geekbrains.mynasa_md.model.response.EarthResponseData
-import com.geekbrains.mynasa_md.model.response.MarsResponseData
 import com.geekbrains.mynasa_md.model.response.PhotoMarsResponseData
 import com.geekbrains.mynasa_md.model.response.ResponseData
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants

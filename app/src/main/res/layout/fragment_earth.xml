@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <ImageView
-        style="@style/MyImageViewStyle"
-        android:id="@+id/earth_imageView"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/bg_earth" />
+        android:layout_marginBottom="@dimen/nasa_margin_bottom">
 
-    <ProgressBar
-        android:id="@+id/earth_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <include
+            android:id="@+id/f_earth_coordinator"
+            layout="@layout/fragment_earth_coordinator"/>
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,6 +25,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/swipe_margin"
+            android:src="@drawable/swipe_indicator_active">
+        </ImageView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/swipe_margin"
             android:src="@drawable/swipe_indicator_passive">
         </ImageView>
 
@@ -34,15 +39,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/swipe_margin"
-            android:src="@drawable/swipe_indicator_active">
-        </ImageView>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/swipe_margin"
-            android:src="@drawable/swipe_indicator_active">
+            android:src="@drawable/swipe_indicator_passive">
         </ImageView>
 
     </LinearLayout>
+
 </FrameLayout>

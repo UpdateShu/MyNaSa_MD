@@ -1,13 +1,11 @@
 package com.geekbrains.mynasa_md.view.navigation
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -15,7 +13,6 @@ import coil.load
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.FragmentMarsBinding
 import com.geekbrains.mynasa_md.viewmodel.AppState
-import com.geekbrains.mynasa_md.viewmodel.EarthViewModel
 import com.geekbrains.mynasa_md.viewmodel.MarsViewModel
 import com.geekbrains.mynasa_md.viewmodel.utils.showSnackBarAction
 

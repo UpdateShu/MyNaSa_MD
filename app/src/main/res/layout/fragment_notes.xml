@@ -8,10 +8,12 @@
         android:id="@+id/notes_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:fontFamily="@font/cormorant_unicase_light"
         android:overScrollMode="ifContentScrolls" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fragment_recycler_view_fab"
+        style="@style/MyAdditionalView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

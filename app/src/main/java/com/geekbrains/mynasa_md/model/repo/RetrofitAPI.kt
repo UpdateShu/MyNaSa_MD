@@ -1,8 +1,6 @@
 package com.geekbrains.mynasa_md.model.repo
 
-import android.app.BackgroundServiceStartNotAllowedException
 import com.geekbrains.mynasa_md.model.response.EarthResponseData
-import com.geekbrains.mynasa_md.model.response.MarsResponseData
 import com.geekbrains.mynasa_md.model.response.PhotoMarsResponseData
 import com.geekbrains.mynasa_md.model.response.PictureOfTheDayResponseData
 import com.geekbrains.mynasa_md.model.response.SolarFlareResponseData

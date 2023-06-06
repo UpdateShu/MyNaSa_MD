@@ -5,17 +5,16 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="@dimen/header_height"
-    android:backgroundTint="@color/material_amber_300">
+    style="@style/MyAdditionalView">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/header_title_text_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:autoSizeMaxTextSize="@dimen/_45sp"
-        android:autoSizeTextType="uniform"
+        android:textSize="@dimen/note_text_size"
         android:gravity="center"
+        app:fontFamily="@font/cormorant_unicase_light"
         android:textColor="@color/black"
-        android:textSize="14sp"
         tools:text="@string/header" />
 
     <View

@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.FragmentSolarFlaresBinding

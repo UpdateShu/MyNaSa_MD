@@ -6,7 +6,6 @@ import androidx.annotation.RequiresApi
 import com.google.android.material.snackbar.Snackbar
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import kotlin.math.absoluteValue
 
 // Показать SnackBar с кнопкой действия
 fun View.showSnackBarAction(

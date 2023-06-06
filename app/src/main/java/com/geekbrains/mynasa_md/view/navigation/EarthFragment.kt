@@ -1,30 +1,29 @@
 package com.geekbrains.mynasa_md.view.navigation
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
+import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.ChangeImageTransform
+import androidx.transition.TransitionManager
 import coil.load
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.FragmentEarthBinding
 import com.geekbrains.mynasa_md.viewmodel.AppState
 import com.geekbrains.mynasa_md.viewmodel.EarthViewModel
-import com.geekbrains.mynasa_md.viewmodel.SolarFlareViewModel
 import com.geekbrains.mynasa_md.viewmodel.utils.showSnackBarAction
 
 class EarthFragment : Fragment() {
 
-    private var _binding : FragmentEarthBinding? = null
+    private var _binding: FragmentEarthBinding? = null
     private val binding get() = _binding!!
 
-    companion object{
+    companion object {
         fun newInstance() = EarthFragment()
     }
 
@@ -41,6 +40,8 @@ class EarthFragment : Fragment() {
         ViewModelProvider(this).get(EarthViewModel::class.java)
     }
 
+    private var flag : Boolean = false
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -48,37 +49,53 @@ class EarthFragment : Fragment() {
             renderData(state)
         }
         viewModel.sendRequest(R.id.earth_progress)
+
+        binding.fEarthCoordinator.also { coord ->
+            coord.earthImageView.setOnClickListener {
+                // добавляем анимацию (трансформацию) изображения
+                val changeBounds = ChangeImageTransform()
+                TransitionManager.beginDelayedTransition(
+                    coord.coordinatorCollapsing, changeBounds)
+
+                flag = !flag
+                // без анимации:
+                coord.earthImageView.scaleType = if (flag)
+                    ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.CENTER_INSIDE
+            }
+        }
     }
 
     @SuppressLint("NewApi") // TODO HW не потерять пользователя 24-27 sdk версии
     private fun renderData(state: AppState) {
-        when (state) {
-            is AppState.Error -> {
-                binding.earthImageView.isVisible = false
-                binding.earthProgress.isVisible = false
-                binding.earthProgress.showSnackBarAction(
-                    state.error.toString(),
-                    R.string.reload.toString(),
-                    {
-                        viewModel.sendRequest(R.id.earth_progress)
-                    })
-            }
+        binding.fEarthCoordinator.also { coor ->
+            when (state) {
+                is AppState.Error -> {
+                    coor.earthImageView.isVisible = false
+                    coor.earthProgress.isVisible = false
+                    coor.earthProgress.showSnackBarAction(
+                        state.error.toString(),
+                        R.string.reload.toString(),
+                        {
+                            viewModel.sendRequest(R.id.earth_progress)
+                        })
+                }
 
-            is AppState.Loading -> {
-                binding.earthImageView.isVisible = false
-                binding.earthProgress.isVisible = true
-            }
+                is AppState.Loading -> {
+                    coor.earthImageView.isVisible = false
+                    coor.earthProgress.isVisible = true
+                }
 
-            is AppState.Success -> {
-                val data = state.responseData.earth
-                binding.earthImageView.isVisible = true
-                data?.let {
-                    if (data.isNotEmpty()) {
-                        binding.earthImageView.isVisible = true
-                        binding.earthProgress.isVisible = false
+                is AppState.Success -> {
+                    val data = state.responseData.earth
+                    coor.earthImageView.isVisible = true
+                    data?.let {
+                        if (data.isNotEmpty()) {
+                            coor.earthImageView.isVisible = true
+                            coor.earthProgress.isVisible = false
 
-                        val first = data.get(0)
-                        binding.earthImageView.load(first.getImageUrl())
+                            val first = data.get(0)
+                            coor.earthImageView.load(first.getImageUrl())
+                        }
                     }
                 }
             }

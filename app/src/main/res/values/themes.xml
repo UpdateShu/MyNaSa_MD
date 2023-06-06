@@ -26,6 +26,10 @@
         <item name="editTextStyle">@style/MyEditTextStyle</item>
     </style>
 
+    <style name="SplashTheme" parent="Theme.MyNaSa_MD">
+
+    </style>
+
     <style name="Theme.MyNaSa_MD" parent="Base.Theme.MyNaSa_MD">
     </style>
 </resources>

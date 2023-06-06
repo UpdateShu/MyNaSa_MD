@@ -2,7 +2,6 @@ package com.geekbrains.mynasa_md.view
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
@@ -17,12 +16,10 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.graphics.drawable.toDrawable
-import androidx.core.graphics.scaleMatrix
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
-import coil.transform.CircleCropTransformation
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.databinding.FragmentPictureBinding
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants.DAY_BEFORE_YESTERDAY

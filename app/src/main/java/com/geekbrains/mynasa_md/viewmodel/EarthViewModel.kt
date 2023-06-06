@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.geekbrains.mynasa_md.model.repo.RepositoryImpl
 import com.geekbrains.mynasa_md.model.response.EarthResponseData
 import com.geekbrains.mynasa_md.model.response.ResponseData
-import com.geekbrains.mynasa_md.model.response.SolarFlareResponseData
 import com.geekbrains.mynasa_md.viewmodel.utils.Constants
 import retrofit2.Call
 import retrofit2.Callback

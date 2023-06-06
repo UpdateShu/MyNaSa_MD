@@ -1,6 +1,5 @@
 package com.geekbrains.mynasa_md.view.notes.editor
 
-import android.os.Bundle
 import com.geekbrains.mynasa_md.R
 import com.geekbrains.mynasa_md.model.MyNote
 

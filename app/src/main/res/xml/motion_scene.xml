@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Transition
+        app:constraintSetStart="@layout/fragment_motion_start"
+        app:constraintSetEnd="@layout/fragment_motion_end"
+        app:duration="700">
+        <OnClick app:targetId="@+id/btn_sun_off"/>
+    </Transition>
+
+    <Transition
+        app:constraintSetStart="@layout/fragment_motion_start"
+        app:constraintSetEnd="@layout/fragment_motion_end"
+        app:duration="700">
+        <OnClick app:targetId="@+id/btn_sun_on"/>
+    </Transition>
+</MotionScene>

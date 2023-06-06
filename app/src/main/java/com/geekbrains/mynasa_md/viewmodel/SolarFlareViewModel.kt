@@ -3,7 +3,6 @@ package com.geekbrains.mynasa_md.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.geekbrains.mynasa_md.model.response.PictureOfTheDayResponseData
 import com.geekbrains.mynasa_md.model.repo.RepositoryImpl
 import com.geekbrains.mynasa_md.model.response.ResponseData
 import com.geekbrains.mynasa_md.model.response.SolarFlareResponseData

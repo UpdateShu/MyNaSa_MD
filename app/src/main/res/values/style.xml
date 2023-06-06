@@ -29,7 +29,12 @@
     </style>
 
     <style name="MyAdditionalView">
-        <item name="android:background">@color/material_amber_100</item>
+        <item name="android:background">@color/material_amber_50</item>
+        <item name="android:backgroundTint">@color/material_amber_50</item>
+    </style>
+
+    <style name="NoteTextInputStyle" parent="MyTextInputStyle">
+        <item name="android:textSize">@dimen/note_text_size</item>
     </style>
 
 </resources>
