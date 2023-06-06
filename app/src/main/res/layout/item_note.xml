@@ -36,13 +36,12 @@
             android:id="@+id/note_created"
             style="@style/NoteTextInputStyle"
             android:alpha="0.5"
+            android:text="@string/hint_note_created"
             android:layout_width="@dimen/note_created_width"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:textAlignment="viewEnd"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/hint_note_created" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/hb_date"
@@ -61,28 +60,21 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/note_text"
             style="@style/NoteTextInputStyle"
-            android:layout_width="@dimen/_0dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:alpha="0.8"
             android:padding="@dimen/_16dp"
             android:background="?selectableItemBackground"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/vb_date"
             app:layout_constraintTop_toBottomOf="@id/hb_date"
             tools:text="@string/hint_note_text"></androidx.appcompat.widget.AppCompatTextView>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/vg_note_editor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.9" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/note_edit"
                 android:layout_width="@dimen/_55dp"
                 android:layout_height="@dimen/_55dp"
                 app:layout_constraintStart_toEndOf="@id/vb_date"
-                app:layout_constraintEnd_toStartOf="@id/vg_note_editor"
                 app:layout_constraintTop_toBottomOf="@id/hb_date"
                 android:src="@drawable/baseline_edit_note_24" />
 
@@ -93,7 +85,6 @@
             android:src="@drawable/baseline_check_24"
             android:visibility="gone"
             app:layout_constraintStart_toEndOf="@id/vb_date"
-            app:layout_constraintEnd_toStartOf="@id/vg_note_editor"
             app:layout_constraintTop_toBottomOf="@id/hb_date"
             tools:layout_editor_absoluteX="43dp" />
 
@@ -102,7 +93,6 @@
                 android:layout_width="@dimen/_55dp"
                 android:layout_height="@dimen/_55dp"
                 app:layout_constraintStart_toEndOf="@id/vb_date"
-                app:layout_constraintEnd_toStartOf="@id/vg_note_editor"
                 app:layout_constraintTop_toBottomOf="@id/note_edit"
                 android:src="@drawable/ic_baseline_delete_outline_24" />
 

@@ -27,7 +27,7 @@
     <dimen name="_s4dp">4dp</dimen>
     <dimen name="_s16dp">16dp</dimen>
 
-    <dimen name="note_created_width">100dp</dimen>
+    <dimen name="note_created_width">60dp</dimen>
     <dimen name="picture_description_height">250dp</dimen>
     <dimen name="description_textSize">24dp</dimen>
     <dimen name="theme_margin">10dp</dimen>

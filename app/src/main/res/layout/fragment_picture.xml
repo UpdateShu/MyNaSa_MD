@@ -40,7 +40,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fpictures_text_input_layout"
-            app:layout_constraintBottom_toTopOf="@id/fm_button_video"
+            app:layout_constraintBottom_toTopOf="@id/gl_picture_manager"
             app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
@@ -70,6 +70,13 @@
 
         </com.google.android.material.chip.ChipGroup>
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_picture_manager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/fm_button_video"
             android:layout_gravity="center"
@@ -77,8 +84,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/f_pictures_chip_group"
-            app:layout_constraintBottom_toTopOf="@id/fpictures_imageview"
+            app:layout_constraintTop_toBottomOf="@id/gl_picture_manager"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:visibility="visible"
             android:text="@string/play_video" />
 
@@ -90,7 +97,7 @@
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/f_pictures_chip_group"
+            app:layout_constraintTop_toBottomOf="@id/gl_picture_manager"
             app:layout_constraintBottom_toBottomOf="parent">
 
         </com.geekbrains.mynasa_md.viewmodel.utils.EquilateralImageView>

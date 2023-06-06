@@ -20,7 +20,7 @@
                 style="@style/MyImageViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="centerInside"
+                android:scaleType="matrix"
                 android:src="@drawable/bg_earth"
                 app:layout_collapseMode="parallax" />
 

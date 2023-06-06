@@ -32,8 +32,8 @@ class EarthCoordinatorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // todo задать behavior с кода
-        //val behavior = ToFABBehavior(requireContext())
-        //(binding.fCoordinatorFab.layoutParams as CoordinatorLayout.LayoutParams).behavior = behavior
+        val behavior = ToFABBehavior(requireContext())
+        (binding.fCoordinatorFab.layoutParams as CoordinatorLayout.LayoutParams).behavior = behavior
     }
 
     override fun onDestroy() {

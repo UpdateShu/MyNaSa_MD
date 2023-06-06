@@ -2,6 +2,7 @@ package com.geekbrains.mynasa_md.view.navigation
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.Gravity.CENTER
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,9 +59,8 @@ class EarthFragment : Fragment() {
                     coord.coordinatorCollapsing, changeBounds)
 
                 flag = !flag
-                // без анимации:
                 coord.earthImageView.scaleType = if (flag)
-                    ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.CENTER_INSIDE
+                    ImageView.ScaleType.FIT_CENTER else ImageView.ScaleType.MATRIX
             }
         }
     }
